@@ -1,1 +1,1 @@
-sporedirectory = "/home/egg/.steam/steam/steamapps/common/Spore" # Put the directory to your Spore folder here. example = "/home/user/.steam/steam/steamapps/common/Spore"
+sporedirectory = "" # Put the directory to your Spore folder here. example = "/home/user/.steam/steam/steamapps/common/Spore"
