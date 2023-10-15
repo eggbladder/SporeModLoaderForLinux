@@ -146,14 +146,17 @@ def installMod(mod):
                 if line.startswith("	<prerequisite"):
                     downloadlist.append(getFile(line))
             for download in downloadlist:
-                print("installing " + download[1])
+                try:
+                    print("installing " + download[1])
+                except:
+                    pass
                 sendFile(download, mod)
             try:
                 os.rename(cwd + "/install/" + os.path.splitext(mod)[0] + ".zip",
                           cwd + "/install/" + os.path.splitext(mod)[0] + ".sporemod")
             except:
                 pass
-            shutil.move(cwd + "/install/" + mod, cwd + "/installed/" + mod)
+            shutil.move(cwd + "/install/" + os.path.splitext(mod)[0] + ".sporemod", cwd + "/installed/" + os.path.splitext(mod)[0] + ".sporemod")
 
 
 def viewMods(mode="new"):
