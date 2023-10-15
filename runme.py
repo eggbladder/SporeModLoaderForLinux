@@ -23,6 +23,19 @@ else:
 
 def sendFile(filetuple, mod):
     thinezip = zf(cwd + "/install/" + os.path.splitext(mod)[0] + ".zip", mode='r')
+    if "?" in filetuple[1]:
+        listtoinstall = filetuple[1].split("?")
+        listtosend = filetuple[0].split("?")
+        for file in listtoinstall:
+            listtoinstall.index(file)
+            if listtosend[listtoinstall.index(file)] == "Spore":
+                thinezip.extract(file, config.sporedirectory + "/Data/")
+                thinezip.extract(file, config.sporedirectory + "/DataEP1/")
+            elif listtosend[listtoinstall.index(file)] == "GalacticAdventures":
+                thinezip.extract(file, config.sporedirectory + "/Data/")
+                thinezip.extract(file, config.sporedirectory + "/DataEP1/")
+            elif listtosend[listtoinstall.index(file)] == "ModLibs":
+                thinezip.extract(file, config.sporedirectory + "/SporeModLoader/ModLibs/")
 
     if filetuple[0] == "Spore":
         thinezip.extract(filetuple[1], config.sporedirectory + "/Data/")
